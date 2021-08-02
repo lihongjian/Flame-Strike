@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="next.section9.dao.IOrderDao">
+
+    <resultMap id="BaseResultMap" type="next.section9.vo.OrderVO">
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="customerName" jdbcType="VARCHAR" property="customerName" />
+        <result column="mobileNum" jdbcType="VARCHAR" property="mobileNum" />
+        <result column="supplierName" jdbcType="VARCHAR" property="supplierName" />
+        <result column="goodsName" jdbcType="VARCHAR" property="goodsName" />
+        <result column="unitPrice" jdbcType="VARCHAR" property="unitPrice" />
+        <result column="totalPrice" jdbcType="VARCHAR" property="totalPrice" />
+        <result column="orderStatus" jdbcType="VARCHAR" property="orderStatus" />
+    </resultMap>
+
+    <select id="pageListOrders" resultMap="BaseResultMap">
+        select * from bnh_order h where h.customerName = #{name}
+    </select>
+
+</mapper>

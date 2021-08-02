@@ -1,0 +1,29 @@
+.mainframe-header { 
+    height:48px;
+    line-height: 48px;
+    font-size: 16px;
+    top:0px;
+    position:fixed;
+    width: 100%;
+    background-color:#F8F8F8;
+    z-index: 100;
+  }
+
+.header-content {
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    background-color:skyblue;
+  }
+  
+.header-userinfo{
+  float: right;
+}
+
+.header-hello{
+ display: inline-block;
+}
+
+.header-icon {
+  padding: 0 20px;
+}
