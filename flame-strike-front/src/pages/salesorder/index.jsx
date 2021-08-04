@@ -6,6 +6,7 @@ import { Cascader, Select, Row, Col, Checkbox, AutoComplete } from 'antd';
 
 import './index.css';
 import "antd/dist/antd.css";
+import Card from './card'
 
 import axios from 'axios'
 
@@ -156,7 +157,6 @@ export default class Salesorder extends React.Component {
 
   render() {
     const { selectedRowKeys, data, pagination,defaultPaginationOption } = this.state;
-    console.log(data)
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
@@ -222,68 +222,10 @@ export default class Salesorder extends React.Component {
           onClose={this.onClose}
           visible={this.state.visible}
           getContainer={false}
-          width={1024}
+          width={512}
           style={{ position: 'absolute',opacity:0.9 }}
         >
-            <Row style={{marginTop:'12px'}} gutter={8}>
-
-      <Col className="gutter-row" span={4}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-
-      <Col className="gutter-row" span={6}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-
-      <Col className="gutter-row" span={4}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-
-      <Col className="gutter-row" span={6}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-
-    </Row>
-
-    <Row style={{marginTop:'12px'}} gutter={8}>
-
-    <Col className="gutter-row" span={4}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-
-      <Col className="gutter-row" span={6}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-
-      <Col className="gutter-row" span={4}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-
-      <Col className="gutter-row" span={6}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-      
-    </Row>
-
-
-    <Row style={{marginTop:'12px'}} gutter={8}>
-
-    <Col className="gutter-row" span={4}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-
-      <Col className="gutter-row" span={6}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-
-      <Col className="gutter-row" span={4}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>
-
-      <Col className="gutter-row" span={6}>
-        <div style={{ background: '#0092ff', padding: '8px 0' }}>col-6</div>
-      </Col>  
-    </Row>
+    <Card/>
         </Drawer>
       </div>);
   }
