@@ -16,14 +16,14 @@ function getEntry() {
             entry[name] = filePath;
             htmlPluginArray.push(new HtmlWebPackPlugin({
                 filename: './' + name + '/index.html',
-                template:'/src/template/index.html',
+                template:'./src/template/index.html',
                 chunks:[name]
             }))
         });
     entry['index'] = './src/index.jsx'
     htmlPluginArray.push(new HtmlWebPackPlugin({
         filename: './index.html',
-        template:'/src/template/index.html',
+        template:'./src/template/index.html',
         chunks:['index']
     }))
     return entry;
@@ -56,8 +56,8 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.(gif|png|jpe?g|eot|woff|ttf|pdf)$/,
-                use: 'file-loader',
+                test: /\.(gif|png|jpe?g|eot|woff|ttf|pdf|svg)$/,
+                type: 'asset/resource'
               }
         ]
     },

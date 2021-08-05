@@ -1,4 +1,5 @@
 .mainframe-header { 
+
     height:48px;
     line-height: 48px;
     font-size: 16px;
@@ -7,14 +8,100 @@
     width: 100%;
     background-color:#F8F8F8;
     z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 
-.header-content {
-    margin: 0 auto;
-    width: 80%;
-    height: 100%;
-    background-color:skyblue;
-  }
+.header-content-left {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    line-height: 13px;
+    vertical-align: baseline;
+    -webkit-box-align: center;
+    -webkit-box-pack:start;
+    font-size: 13px;
+    width: 45%;
+    height: 48px;
+    line-height: 48px;
+}
+.header-content-left-main-icon {
+  display: inline-flex;
+  background: url(flame.svg) 0px 0px / contain no-repeat;
+  -webkit-box-align: center;
+  text-size-adjust: 100%;
+  position: relative;
+  padding-right: 8px;
+  width: 40px;
+  height: 32px;
+  margin: 0 8px 0 24px;
+}
+
+.header-content-left-main-icon::after{
+  background-color: black;
+  display: inline-block;
+  content: "";
+  height: 16px;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -6px;
+}
+
+.header-content-right {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    line-height: 13px;
+    vertical-align: baseline;
+    -webkit-box-align: center;
+    -webkit-box-pack:start;
+    font-size: 13px;
+    width: 50%;
+    height: 48px;
+    line-height: 48px;
+}
+
+.header-content-right-message{
+  background: url(message.svg) 0px 0px / contain no-repeat;
+  position: relative;
+  padding-right: 8px;
+  width: 40px;
+  height: 32px;
+  margin: 0 8px 0 24px;
+}
+
+.header-content-right-message::after{
+  background-color: black;
+  display: inline-block;
+  content: "";
+  height: 16px;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -6px;
+}
+
+.header-content-right-date{
+  position: relative;
+  padding-right: 8px;
+}
+.header-content-right-date::after{
+  background-color: black;
+  display: inline-block;
+  content: "";
+  height: 16px;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -6px;
+}
   
 .header-userinfo{
   float: right;
@@ -26,4 +113,8 @@
 
 .header-icon {
   padding: 0 20px;
+}
+
+.header-main-icon{
+  display: inline-block;
 }

@@ -34,8 +34,7 @@ export default class index extends Component {
                <BnhHeader className="mainframe-header" />
                <Layout className="mainframe-layout">
                     <Sider className="sider-Layout" collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
-
-                        <Menu className="sider-menu" theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                        <Menu className="sider-menu" defaultSelectedKeys={['1']} mode="inline">
                             <Menu.Item key="1" icon={<PieChartOutlined />}>
                                 客户管理
             </Menu.Item>

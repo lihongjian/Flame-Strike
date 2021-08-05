@@ -2,8 +2,10 @@ server:
   port: 8989 # 端口号
 spring:
   datasource:
-    url: jdbc:sqlite:/Users/hongjianli/workshop/sqlite-tools-osx-x86-3350500/aaa.db # 创建的sqlite数据库所在路径
-    username: # 因为没有用户名和密码，所以这两个参数就没有值
+    # 创建的sqlite数据库所在路径
+    url: jdbc:sqlite::resource:db/banish.db
+    # 因为没有用户名和密码，所以这两个参数就没有值
+    username:
     password:
     driver-class-name: org.sqlite.JDBC # sqlite驱动
 
