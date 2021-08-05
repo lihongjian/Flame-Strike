@@ -70,8 +70,8 @@ export default class index extends Component {
                 <div className="header-content-right">
                     <div className="header-content-right-message"></div>
                     <div className="header-content-right-date"><span>2021-8-04</span></div>
-                    <div className="header-userinfo">
-                        <div className="header-hello"> {timeInterval}好，宏建</div>
+                    <div className="header-content-right-userinfo">
+                        <div className="header-content-right-userinfo-hello"> {timeInterval}好，宏建</div>
                     </div>
                 </div> 
             </div>

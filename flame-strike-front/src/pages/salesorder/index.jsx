@@ -88,7 +88,6 @@ export default class Salesorder extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.setState({ loading: true });
     const _this = this;
     const { pagination } = this.state;
@@ -111,7 +110,6 @@ export default class Salesorder extends React.Component {
   }
 
   componentWillUnmount(){
-    debugger
     console.log('what the fuck!');
       this.source.cancel('Operation canceled by the user.');
   }

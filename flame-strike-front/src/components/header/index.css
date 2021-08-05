@@ -8,7 +8,6 @@
     width: 100%;
     background-color:#F8F8F8;
     z-index: 100;
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -24,7 +23,7 @@
     -webkit-box-align: center;
     -webkit-box-pack:start;
     font-size: 13px;
-    width: 45%;
+    width: 50%;
     height: 48px;
     line-height: 48px;
 }
@@ -37,7 +36,7 @@
   padding-right: 8px;
   width: 40px;
   height: 32px;
-  margin: 0 8px 0 24px;
+  margin: 0 8px 0 48px;
 }
 
 .header-content-left-main-icon::after{
@@ -52,10 +51,16 @@
   margin-top: -6px;
 }
 
+.header-content-left-menu{
+ position: relative;
+  padding-right: 8px;
+  margin: 0 8px 0 4px;
+}
+
 .header-content-right {
     display: inline-flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
     line-height: 13px;
     vertical-align: baseline;
     -webkit-box-align: center;
@@ -90,6 +95,7 @@
 .header-content-right-date{
   position: relative;
   padding-right: 8px;
+  margin: 0 8px 0 4px;
 }
 .header-content-right-date::after{
   background-color: black;
@@ -102,19 +108,14 @@
   top: 50%;
   margin-top: -6px;
 }
-  
-.header-userinfo{
-  float: right;
+
+
+.header-content-right-userinfo{
+  position: relative;
+  padding-right: 8px;
+  margin: 0 32px 0 4px;
 }
 
-.header-hello{
- display: inline-block;
-}
 
-.header-icon {
-  padding: 0 20px;
-}
 
-.header-main-icon{
-  display: inline-block;
-}
+
