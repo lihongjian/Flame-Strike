@@ -5,7 +5,7 @@ import { Table, Input, Button, Popconfirm, Form, InputNumber, Typography, Drawer
 import { Cascader, Select, Row, Col, Checkbox, AutoComplete } from 'antd';
 
 import './index.css';
-import "antd/dist/antd.css";
+import "antd/dist/antd.less";
 import Card from './card'
 
 import axios from 'axios'

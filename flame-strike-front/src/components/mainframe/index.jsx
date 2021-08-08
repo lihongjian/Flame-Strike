@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import Maincontent from '../maincontent'
 import BnhHeader from '../header'
-import "antd/dist/antd.css";
+import "antd/dist/antd.less";
 import './index.css';
 
 import {BrowserRouter} from 'react-router-dom'
@@ -33,7 +33,7 @@ export default class index extends Component {
             <div className="mainframe">
                <BnhHeader className="mainframe-header" />
                <Layout className="mainframe-layout">
-                    <Sider className="sider-Layout" collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
+                    <Sider id="mainframe-sider" className="sider-Layout" theme="light" collapsible collapsed={collapsed} defaultCollapsed={true} onCollapse={this.onCollapse}>
                         <Menu className="sider-menu" defaultSelectedKeys={['1']} mode="inline">
                             <Menu.Item key="1" icon={<PieChartOutlined />}>
                                 客户管理

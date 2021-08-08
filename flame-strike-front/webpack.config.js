@@ -56,6 +56,29 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
+                test: /\.less$/,
+                use: [ 'style-loader','css-loader',
+                  {
+                    loader: 'less-loader', // 编译 Less 为 CSS
+                    options:{
+                        lessOptions:{
+                            modifyVars:{
+                                'primary-color': '#c63520',
+                                'link-color': '#c63520',
+                                // 'success-color':'#c63520',
+                                // 'warning-color':'#c63520',
+                                // 'error-color':'#c63520',
+                                // 'text-color':'#c63520',
+                                // 'border-color-base':'#c63520',
+                                // 'border-radius-base': '2px',
+                            },
+                            javascriptEnabled: true,
+                        }
+                    }
+                  },
+                ],
+              },
+            {
                 test: /\.(gif|png|jpe?g|eot|woff|ttf|pdf|svg)$/,
                 type: 'asset/resource'
               }

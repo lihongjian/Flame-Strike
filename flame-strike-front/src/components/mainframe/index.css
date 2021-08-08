@@ -58,4 +58,12 @@
   margin: '16px 0';
   text-align: left;
 }
+
+
+#mainframe-sider .ant-layout-sider-trigger {
+  color: #c63520;
+  background: #f0f2f5;
+}
+
+
   
