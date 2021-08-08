@@ -155,6 +155,7 @@ export default class Salesorder extends React.Component {
 
   render() {
     const { selectedRowKeys, data, pagination,defaultPaginationOption } = this.state;
+    const drowerWidth = document.documentElement.clientWidth /2;
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
@@ -193,7 +194,7 @@ export default class Salesorder extends React.Component {
       ],
     };
     return (
-      
+   
       <div>
         <div className="titlebar">
           <div className="buttonbar">
@@ -220,7 +221,7 @@ export default class Salesorder extends React.Component {
           onClose={this.onClose}
           visible={this.state.visible}
           getContainer={false}
-          width={512}
+          width={drowerWidth}
           style={{ position: 'absolute',opacity:0.9 }}
         >
     <Card/>
