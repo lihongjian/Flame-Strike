@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/cust")
+@RequestMapping("/customer")
 public class CustomerController {
 
     @Resource
@@ -28,8 +28,14 @@ public class CustomerController {
 
     @RequestMapping("save")
     public Result<Object> save(@RequestBody CustomerVO customerVO){
-        PageResult result = customerService.save(customerVO);
-        return ResultUtil.success(ResultEnum.SUCCESS,result);
+        customerService.save(customerVO);
+        return ResultUtil.success(ResultEnum.SUCCESS,null);
+    }
+
+    @RequestMapping("delete")
+    public Result<Object> delete(@RequestBody String Id){
+        customerService.delete(Id);
+        return ResultUtil.success(ResultEnum.SUCCESS,null);
     }
 
     

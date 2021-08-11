@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="next.section9.dao.IOrderDao">
+
+    <resultMap id="BaseResultMap" type="next.section9.entity.CustomerEntity">
+
+        <result column="pk" jdbcType="VARCHAR" property="pk"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="age" jdbcType="VARCHAR" property="age"/>
+        <result column="blacklistedFlag" jdbcType="VARCHAR" property="blacklistedFlag"/>
+        <result column="memo" jdbcType="VARCHAR" property="memo"/>
+
+    </resultMap>
+
+
+    <insert id="save">
+
+        insert into bnh_customer(pk,name,phone,sex,age,blacklistedFlag,memo)
+
+               values (#{pk},#{name},#{phone},#{sex},#{age},#{blacklistedFlag},#{memo})
+
+    </insert>
+
+
+    <update id="update">
+
+
+        update bnh_customer set name = #{name},
+           phone = #{phone},
+           sex = #{sex},
+           age = #{age},
+           blacklistedFlag = #{blacklistedFlag},
+           memo = #{memo} where pk = #{pk}
+
+    </update>
+
+
+    <select id="pageListCustomers" resultMap="BaseResultMap">
+
+        select * from bnh_customer h where h.customerName = #{name}
+
+    </select>
+
+</mapper>
