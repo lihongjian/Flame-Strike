@@ -230,4 +230,4 @@ export default class Customer extends React.Component {
   }
 }
 
-ReactDom.render(<Salesorder/>,  document.getElementById("app1"));
+ReactDom.render(<Customer/>,  document.getElementById("app1"));
