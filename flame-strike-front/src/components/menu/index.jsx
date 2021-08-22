@@ -10,19 +10,21 @@ export default class index extends Component {
 
     constructor(props) {
         super(props);
-        const { menuItems,onSelect } = props;
+        const { menuItems,onSelect,current } = props;
         this.onSelect = onSelect;
         this.state = {
-            menuItems:menuItems
+            menuItems:menuItems,
+            current:current
         }
     }
 
     getItems = () => {
         const items = [];
         const { menuItems } = this.state;
-        for (let i = 0; i < menuItems.length; i++) {
-            const menuItem = menuItems[i];
-            items.push(<Menu.Item key={i} icon={this.getIcon(menuItem.icon)}>
+        var x;
+        for (x in menuItems) {
+            const menuItem = menuItems[x];
+            items.push(<Menu.Item key={x} icon={this.getIcon(menuItem.icon)}>
                   {menuItem.name}
             </Menu.Item>)
         }
@@ -34,11 +36,11 @@ export default class index extends Component {
 
     }
     
-
     render() {
+        const { current } = this.state;
         return (
             <div>
-                <Menu className="sider-menu" mode="inline" onSelect={this.onSelect}>
+                <Menu className="sider-menu" selectedKeys={current} mode="inline" onSelect={this.onSelect}>
                     {this.getItems()}
                 </Menu>
             </div>
