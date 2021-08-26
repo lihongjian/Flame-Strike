@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom  from 'react-dom';
+import ReactDom from 'react-dom';
 
 import { Table, Input, Button, Popconfirm, Form, InputNumber, Typography, Drawer } from 'antd';
 import { Cascader, Select, Row, Col, Checkbox, AutoComplete } from 'antd';
@@ -12,54 +12,54 @@ import axios from 'axios'
 
 const columns = [
   {
-    title: '客户',
-    dataIndex: 'customerName',
-    key: 'customerName',
+    title: '姓名',
+    dataIndex: 'name',
+    key: 'name',
     width: '15%',
   },
   {
     title: '手机号',
-    dataIndex: 'mobileNum',
-    key: 'mobileNum',
+    dataIndex: 'phone',
+    key: 'phone',
     width: '15%',
   },
   {
-    title: '供货商',
-    dataIndex: 'supplierName',
-    key: 'supplierName',
+    title: '性别',
+    dataIndex: 'sex',
+    key: 'sex',
     width: '15%',
   },
   {
-    title: '商品',
-    dataIndex: 'goodsName',
-    key: 'goodsName',
+    title: '年龄',
+    dataIndex: 'age',
+    key: 'age',
     width: '15%',
   },
   {
-    title: '单价',
-    dataIndex: 'unitPrice',
-    key: 'unitPrice',
+    title: '备注',
+    dataIndex: 'memo',
+    key: 'memo',
     width: '10%',
-  },
-  {
-    title: '总价',
-    dataIndex: 'totalPrice',
-    key: 'totalPrice',
-    width: '10%',
-  },
-  {
-    title: '订单状态',
-    dataIndex: 'orderStatus',
-    key: 'orderStatus',
-    width: '10%',
-  },
-  {
-    title: 'Action',
-    dataIndex: '',
-    key: 'x',
-    render: () => <a>Delete</a>,
-    width: '20%',
-  },
+  }
+  // ,{
+  //   title: '总价',
+  //   dataIndex: 'totalPrice',
+  //   key: 'totalPrice',
+  //   width: '10%',
+  // },
+  // {
+  //   title: '订单状态',
+  //   dataIndex: 'orderStatus',
+  //   key: 'orderStatus',
+  //   width: '10%',
+  // },
+  // {
+  //   title: 'Action',
+  //   dataIndex: '',
+  //   key: 'x',
+  //   render: () => <a>Delete</a>,
+  //   width: '20%',
+  // },
 ];
 
 
@@ -75,87 +75,84 @@ export default class Customer extends React.Component {
       data: [],
       loading: false,
       visible: false,
-      pagination:{
-        current:1,
-        pageSize:10,
+      pagination: {
+        current: 1,
+        pageSize: 10,
       },
       defaultPaginationOption: {
-        showQuickJumper:true,
-        showSizeChanger:true,
-        pageSizeOptions:[10,20,50,100],
+        showQuickJumper: true,
+        showSizeChanger: true,
+        pageSizeOptions: [10, 20, 50, 100],
       },
+      cardMotion: 1, //1 查看 2 编辑 3 新增
     }
   }
 
   componentDidMount() {
-    this.setState({ loading: true });
     const _this = this;
+    // _this.setState({ loading: true });
     const { pagination } = this.state;
-   
+
     const token = this.source.token;
-    axios.post('/order/getOrders', {
-      pageParam:pagination, customerName: '我是谁1'
-    },{cancelToken:token}).then(function (response) {
-      _this.setState({
-        data: response.data.data.rows,
-        loading: false,
-        pagination: {
-          ...response.data.data.pageInfo,
-          ..._this.state.defaultPaginationOption
-        }
-      })
+    axios.post('/customer/getCustomers', {
+      pageParam: pagination, customerName: '我是谁1'
+    }, { cancelToken: token }).then(function (response) {
+      // _this.setState({
+      //   data: response.data.data.rows,
+      //   loading: false,
+      //   pagination: {
+      //     ...response.data.data.pageInfo,
+      //     ..._this.state.defaultPaginationOption
+      //   }
+      // })
     }).catch(function (error) {
       console.log(error)
     });
   }
 
-  componentWillUnmount(){
-    console.log('what the fuck!');
-      this.source.cancel('Operation canceled by the user.');
-  }
 
   onSelectChange = selectedRowKeys => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
-    this.setState({ selectedRowKeys });
+    // this.setState({ selectedRowKeys });
   };
 
 
   onClose = () => {
-    this.setState({
-      visible: false,
-    });
+    // this.setState({
+    //   visible: false,
+    // });
   };
 
   handleTableChange = (pagination, filters, sorter) => {
-    const _this = this;
-    console.log(pagination);
-    axios.post('/order/getOrders', {
-      pageParam:pagination, customerName: '我是谁1'
-    }).then(function (response) {
-      console.log(response.data.data);
-      _this.setState({
-        data: response.data.data.rows,
-        loading: false,
-        pagination: {
-          ...response.data.data.pageInfo,
-          ..._this.state.defaultPaginationOption
-        }
-      })
-    }).catch(function (error) {
-      console.log(error)
-    });
+    // const _this = this;
+    // console.log(pagination);
+    // axios.post('/order/getOrders', {
+    //   pageParam: pagination, customerName: '我是谁1'
+    // }).then(function (response) {
+    //   console.log(response.data.data);
+    //   _this.setState({
+    //     data: response.data.data.rows,
+    //     loading: false,
+    //     pagination: {
+    //       ...response.data.data.pageInfo,
+    //       ..._this.state.defaultPaginationOption
+    //     }
+    //   })
+    // }).catch(function (error) {
+    //   console.log(error)
+    // });
   }
 
-
-  showDrawer = () => {
-    this.setState({
-      visible: true,
-    });
+  showDrawer = (cardMotion) => {
+    // this.setState({
+    //   visible: true,
+    //   // cardMotion: cardMotion
+    // });
   };
 
   render() {
-    const { selectedRowKeys, data, pagination,defaultPaginationOption } = this.state;
-    const drowerWidth = document.documentElement.clientWidth /2;
+    const { selectedRowKeys, data, pagination, defaultPaginationOption } = this.state;
+    const drowerWidth = document.documentElement.clientWidth / 2;
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange,
@@ -174,7 +171,7 @@ export default class Customer extends React.Component {
               }
               return true;
             });
-            this.setState({ selectedRowKeys: newSelectedRowKeys });
+            // this.setState({ selectedRowKeys: newSelectedRowKeys });
           },
         },
         {
@@ -188,30 +185,30 @@ export default class Customer extends React.Component {
               }
               return false;
             });
-            this.setState({ selectedRowKeys: newSelectedRowKeys });
+            // this.setState({ selectedRowKeys: newSelectedRowKeys });
           },
         },
       ],
     };
     return (
-   
+
       <div>
         <div className="titlebar">
           <div className="buttonbar">
-            <Button className="title-button" type="primary" onClick={this.showDrawer}>
-              Reload
+            <Button className="title-button" type="primary" onClick={this.showDrawer(3)}>
+              新增
             </Button>
-            <Button className="title-button" type="primary" onClick={this.showDrawer}>
+            {/* <Button className="title-button" type="primary" onClick={this.showDrawer}>
               Reload
-            </Button>
+            </Button> */}
             <span className="clear"></span>
           </div>
         </div>
         <Table rowSelection={rowSelection}
-          bordered 
+          bordered
           columns={columns}
           dataSource={data}
-          pagination={{...pagination,...defaultPaginationOption}}
+          pagination={{ ...pagination, ...defaultPaginationOption }}
           rowKey="id"
           onChange={this.handleTableChange} />
         <Drawer className={this.state.visible ? "drawer1" : "drawer2"}
@@ -222,12 +219,12 @@ export default class Customer extends React.Component {
           visible={this.state.visible}
           getContainer={false}
           width={drowerWidth}
-          style={{ position: 'absolute',opacity:0.9 }}
+          style={{ position: 'absolute', opacity: 0.9 }}
         >
-    <Card/>
+          <Card/>
         </Drawer>
       </div>);
   }
 }
 
-ReactDom.render(<Customer/>,  document.getElementById("app1"));
+ReactDom.render(<Customer />, document.getElementById("app1"));

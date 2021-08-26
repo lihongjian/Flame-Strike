@@ -5,7 +5,7 @@ import next.section9.util.ResultEnum;
 import next.section9.util.ResultUtil;
 import next.section9.util.vo.PageResult;
 import next.section9.util.vo.Result;
-import next.section9.util.vo.queryParam.OrderQuery;
+import next.section9.util.vo.queryParam.CustomerQuery;
 import next.section9.vo.CustomerVO;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +21,8 @@ public class CustomerController {
     CustomerService customerService;
 
     @RequestMapping("getCustomers")
-    public Result<Object> getCustomers(@RequestBody OrderQuery orderQuery){
-        PageResult result = customerService.getCustomers(orderQuery.getPageParam(),orderQuery.getCustomerName());
+    public Result<Object> getCustomers(@RequestBody CustomerQuery customerQuery){
+        PageResult result = customerService.getCustomers(customerQuery);
         return ResultUtil.success(ResultEnum.SUCCESS,result);
     }
 

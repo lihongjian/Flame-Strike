@@ -39,7 +39,13 @@
 
     <select id="pageListCustomers" resultMap="BaseResultMap">
 
-        select * from bnh_customer h where h.customerName = #{name}
+        select * from bnh_customer h
+
+        <where>
+            <if test="customerQuery.name != null and customerQuery.name != '' ">
+                name = #{name}
+            </if>
+        </where>
 
     </select>
 
