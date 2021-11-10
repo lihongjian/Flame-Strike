@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="next.section9.dao.IOrderDao">
+<mapper namespace="next.section9.dao.ICustomerDao">
 
     <resultMap id="BaseResultMap" type="next.section9.entity.CustomerEntity">
 
@@ -39,7 +39,13 @@
 
     <select id="pageListCustomers" resultMap="BaseResultMap">
 
-        select * from bnh_customer h where h.customerName = #{name}
+        select * from bnh_customer h
+
+        <where>
+            <if test="customerQuery.name != null and customerQuery.name != '' ">
+                name = #{name}
+            </if>
+        </where>
 
     </select>
 
